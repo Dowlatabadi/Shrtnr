@@ -11,6 +11,9 @@ docker stack deploy -c docker-compose.yml shortenerApp
 
 docker service ls
 
+docker service update shortenerApp_shrtnr_app --publish-add 80:80
+
+
 docker service scale shortenerApp_shrtnr_app=4
 
 curl 127.0.0.1/getURL/CEXIA
