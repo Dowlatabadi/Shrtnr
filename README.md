@@ -18,4 +18,11 @@ docker service scale shortenerApp_shrtnr_app=4
 
 curl 127.0.0.1/getURL/CEXIA
 
+
+docker exec -it b28a64bca6b2 sh
+redis-cli
+select 0
+dbsize
+keys *
+
 ```
