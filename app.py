@@ -24,7 +24,7 @@ def redis_short():
     import redis
 
     r = redis.Redis(
-    host='redis',
+    host='shrtnr_redis',
     port=6379, )
     #r.set('foo', 'bar')
     value = r.get('Counter')
@@ -37,7 +37,7 @@ def redis_short():
 def set(url):
     import redis
     r = redis.Redis(
-    host='redis',
+    host='shrtnr_redis',
     port=6379, )
     saved_short=r.get(url)
     if saved_short!=None:
@@ -50,7 +50,7 @@ def set(url):
 def get(shrt):
     import redis
     r = redis.Redis(
-    host='redis',
+    host='shrtnr_redis',
     port=6379, )
     link=r.get(shrt)
     if link==None:

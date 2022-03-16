@@ -1,15 +1,23 @@
 version: '3'
 services:
-  app:
+  shrtnr_app:
+    image: shrtnr-api
     build: .
     ports:
      - "80:80"
-  redis:
+    networks:
+     - mynet
+    depends_on:
+      - shrtnr_redis
+  shrtnr_redis:
     image: "redis:alpine"
     restart: always
     command: redis-server --appendonly yes
+    networks:
+      - mynet    
     volumes:
         - ./data:/data
 
-
+networks:
+  mynet:    
 
